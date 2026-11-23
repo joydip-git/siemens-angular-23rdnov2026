@@ -1,0 +1,33 @@
+<fieldset>
+    <legend>Calculator:</legend>
+    <div>
+        <label for="radioAdd">Add:</label>
+        <input type="radio" id="radioAdd" name="operation" value="add" [checked]="choice() === 1" (change)="choice.set(1)">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="radioSubtract">Subtract:</label>
+        <input type="radio" id="radioSubtract" name="operation" value="subtract" [checked]="choice() === 2" (change)="choice.set(2)">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="radioMultiply">Multiply:</label>
+        <input type="radio" id="radioMultiply" name="operation" value="multiply" [checked]="choice() === 3" (change)="choice.set(3)">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="radioDivide">Divide:</label>
+        <input type="radio" id="radioDivide" name="operation" value="divide" [checked]="choice() === 4" (change)="choice.set(4)">
+    </div>
+    <br>
+    <div>
+        <label for="firstInput">Number 1:</label>
+        <input type="number" id="firstInput" [value]="first()" (input)="first.set($event.target.valueAsNumber)">
+    </div>
+    <br>
+    <div>
+        <label for="secondInput">Number 2:</label>
+        <input type="number" id="secondInput" [value]="second()" (input)="second.set($event.target.valueAsNumber)">
+    </div>
+    <div>
+        <input type="button" value="Calculate" (click)="calculateResult()">
+    </div>
+    <div>
+        <label for="resultInput">Result:</label>
+        <input type="number" id="resultInput" [value]="result()" readonly>
+    </div>
+</fieldset>
