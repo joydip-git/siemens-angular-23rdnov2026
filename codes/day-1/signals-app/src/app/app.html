@@ -1,0 +1,52 @@
+<button type="button" (click)="show.update((current)=>!current)">
+  {{show()?'Hide':'Show'}}
+</button>
+
+@if(show()){
+<div>
+  <div>
+    <span>Count: {{count}}</span>
+    <br>
+    <span>Value: {{value()}}</span>
+    <br>
+    <span>{{valueMessage}}</span>
+    <br>
+    <span>Double Value: {{doubleValue()}}</span>
+    <br>
+    <button type="button" (click)="increase()">Increase</button>
+  </div>
+
+  @if(people().length > 0) {
+  <ol>
+    @for (p of people(); track $index) {
+    <li>{{p.name}}:{{p.age}}</li>
+    }
+  </ol>
+  <br>
+  <br>
+  <select>
+    <option value="" disabled selected>--select--</option>
+    @for (p of people(); track $index) {
+    <option>{{p.name}}</option>
+    }
+  </select>
+  }@else {
+  <span>No people</span>
+  }
+</div>
+}
+<!--
+<br>
+<span>using ngFor</span>
+<ul *ngIf="names().length > 0;else norecord">
+  <li *ngFor="let name of names()">
+    {{name}}
+  </li>
+</ul>
+
+<ng-template #norecord>
+<div>
+  <span>No names available </span>
+</div>
+</ng-template>
+-->

@@ -72,8 +72,33 @@ Binding:
 2. pass data from template of the component to the code of the same component
 	event binding:
 	<element (event)="method-of-class(args)">
- 
 
+signals:
+WritableSignal: mutable
+signal() -> call this method a pass a default initial value
+	a. set method
+	b. update method
+
+Computed Signal: not mutable directly
+computed() ->  it is used create another signal whose value is calculated/derived from another signal. you must pass a callback function with logic to derive a new value for this signal based on other signal/signals. the callback method MUST return a new value
+
+effect() -> just a function which is used to register a callback function with angular runtime and this callback function generally involves one or more than one signal. the callback function is re-executed every time value of any of the involved signals is changed
+the callback method MUST NOT return any value
+
+
+directive:
+	it is used as custom HTML attribute (which only angular understands)
+
+	a. structural directive: always used with *
+	*ngFor, *ngIf, *ngSwitch etc.
+
+	@Directive({
+		selector:'[ngIf]'
+	})
+	export class NgIf{
+	}
+
+	
 
 
 
