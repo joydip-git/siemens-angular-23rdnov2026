@@ -11,3 +11,71 @@ https://github.com/joydip-git/siemens-angular-23rdnov2026
 global installation path:
 C:\Users\<user-name>\AppData\Roaming\npm
 
+index.html
+-------------------------
+<html>
+<head>.... </head>
+
+<body>
+
+
+</body>
+</html>
+
+
+welcome.html (content)
+<h2>Hello, World!</h2>
+<button onclick="changeText()"> Click </button>
+
+welcome.css
+
+
+welcome.ts
+var text =""
+function changeText(){
+	//code
+}
+
+
+angular-apps
+
+
+var ele = document.createElement('h2')
+ele.id = ''
+ele.classes.add('','')
+ele.textContent = ''
+
+
+features:
+------------
+1. SPA
+2. front end JS based framework
+3. binding
+4. piping
+5. MVC 
+6. service (common business or data access logic)
+7. DI framework 
+8. state management
+9. routing
+10. ....
+
+
+Binding:
+----------------
+1. pass data from code of the component to the template of the same component
+	- data binding
+	syntax: {{ prop-name }} -> interpolation
+		<element [attribute]="prop-name"> -> property binding
+
+	note: interpolation converts any value to string which property bidning does not
+
+2. pass data from template of the component to the code of the same component
+	event binding:
+	<element (event)="method-of-class(args)">
+ 
+
+
+
+
+	
+

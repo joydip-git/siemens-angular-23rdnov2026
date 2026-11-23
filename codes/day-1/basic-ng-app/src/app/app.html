@@ -1,6 +1,12 @@
 <h2 id="headerElement" class="header-style border-style">
-  {{title}}
+  {{title()}}
 </h2>
+<br>
+<div>
+  <label for="titleInput">Enter New Title: &nbsp;</label>
+  <!-- <input type="text" id="titleInput" [value]="title()" [style.width.px]="width" (input)="changeTitle($event.target.value)"> -->
+  <input type="text" id="titleInput" [value]="title()" [style.width.px]="width" (input)="title.set($event.target.value)">
+</div>
 <br>
 <app-another></app-another>
 
