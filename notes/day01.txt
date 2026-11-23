@@ -1,0 +1,13 @@
+https://forms.gle/ug5nznWUeiPzep8u7
+
+
+https://github.com/joydip-git/siemens-angular-23rdnov2026
+
+1. Node JS
+2. VS Code
+3. Angular CLI (ng)
+
+>npm install @angular/cli --global
+global installation path:
+C:\Users\<user-name>\AppData\Roaming\npm
+

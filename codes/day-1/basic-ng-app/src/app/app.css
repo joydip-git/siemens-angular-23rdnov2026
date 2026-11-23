@@ -1,0 +1,20 @@
+/* element selector */
+/* h2 */
+
+/* id selector */
+/* #headerElement  */
+
+/* class selector*/
+.header-style {
+    background-color: burlywood;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.border-style {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: burlywood;
+    border-width: 1px;
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
