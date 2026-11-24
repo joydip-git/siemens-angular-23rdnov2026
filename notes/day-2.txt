@@ -24,7 +24,29 @@ angular feature:
 --------------------------
 sharing data between components
 
+pipe:
+---------------
+import {Pipe, PipeTransform} from '@angular/core'
 
+@Pipe({
+	name:'uppercase'
+})
+export class UpperCasePipe implements PipeTransform{
+	transform(valueToTransform:string):string{
+		return valueToTransform.toUpperCase()
+	}
+}
+
+{{todo.title|uppercase}} -> new UppercasePipe().transform(todo.title)
+
+@Pipe({
+	name:'currency'
+})
+export class CurrencyPipe implements PipeTransform{
+	transform(valueToTransform:any, ...args:any[]):any{
+		return valueToTransform.toUpperCase()
+	}
+}
 
 src
 	index.html
