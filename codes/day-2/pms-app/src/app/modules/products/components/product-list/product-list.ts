@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { productRecords } from '../../repository/productrecords';
 
 @Component({
   imports: [],
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './product-list.css',
   templateUrl: './product-list.html',
 })
-export class ProductList {}
+export class ProductList {
+
+  protected products = signal(productRecords)
+
+}
