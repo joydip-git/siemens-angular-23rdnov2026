@@ -1,1 +1,61 @@
 JavaScript and TypeSctipt
+----------------------------
+chrome: V8
+safari: JS Core
+firefox: Spidermonkey
+edge: chakra -> chromekit
+opera: chromekit
+
+
+2009: Ryan Dahl
+
+function Object(){
+}
+
+ECMA => ECMAScript
+	2015: ES 6
+	let, const
+	class, super, extends, constructor
+	...
+	2026: ES 17
+
+
+src
+	index.html
+	main.ts
+	styles.css
+
+	app
+		app.config.ts
+		app.routes.ts
+		
+		modules
+			root
+				components
+					app
+						app.ts
+						app.html
+						app.css
+						app.spec.ts
+
+			products
+				repository
+					productrecords.ts
+
+				models
+					product.ts
+
+				components
+					product-list
+						product-list.ts
+						product-list.html
+						product-list.css
+						product-list.spec.ts
+
+				services
+				pipes
+			
+		
+
+
+
