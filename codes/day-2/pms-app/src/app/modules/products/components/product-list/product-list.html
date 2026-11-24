@@ -2,7 +2,13 @@
     List of Products
 </h2>
 <br>
-@if(products().length>0){
+<div>
+    <span>
+        Filtering Products By: {{filterText()}}     
+    </span>
+</div>
+<br>
+@if(filteredProducts().length>0){
 <table>
     <thead>
         <tr>
@@ -14,21 +20,21 @@
         </tr>
     </thead>
     <tbody>
-        @for (p of products(); track $index) {
-            <tr>
-                <td>
-                    <img [src]="p.imageUrl" alt="NA" class="img-box" [title]="p.productName">
-                </td>
-                <td>{{p.productName}}</td>
-                <td>{{p.price}}</td>
-                <td>{{p.starRating}}</td>
-                <td>
-                    <button type="button">Delete</button>
-                </td>
-            </tr>
+        @for (p of filteredProducts(); track $index) {
+        <tr>
+            <td>
+                <img [src]="p.imageUrl" alt="NA" class="img-box" [title]="p.productName">
+            </td>
+            <td>{{p.productName}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.starRating}}</td>
+            <td>
+                <button type="button">Delete</button>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
 }@else {
-    <span>No Product Records</span>
+<span>No Product Records</span>
 }

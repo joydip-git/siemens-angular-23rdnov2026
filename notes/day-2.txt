@@ -20,6 +20,12 @@ ECMA => ECMAScript
 	2026: ES 17
 
 
+angular feature:
+--------------------------
+sharing data between components
+
+
+
 src
 	index.html
 	main.ts
@@ -51,6 +57,18 @@ src
 						product-list.html
 						product-list.css
 						product-list.spec.ts
+
+					filter-product
+						filter-product.ts
+						filter-product.html
+						filter-product.css
+						filter-product.spec.ts
+
+					product-container
+						product-container.ts
+						product-container.html
+						product-container.css
+						product-container.spec.ts
 
 				services
 				pipes

@@ -1,0 +1,6 @@
+<h3>Nested Component</h3>
+
+<p> 
+    <label for="txtParentData">Data from parent: &nbsp; </label>
+    <input type="text" id="txtParentData" [value]="parentData()" (input)="emitInputValue(+$event.target.value)">
+</p>

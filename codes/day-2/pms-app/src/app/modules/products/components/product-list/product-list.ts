@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, input, signal } from '@angular/core';
 import { productRecords } from '../../repository/productrecords';
 
 @Component({
@@ -8,7 +8,19 @@ import { productRecords } from '../../repository/productrecords';
   templateUrl: './product-list.html',
 })
 export class ProductList {
-
+  filterText = input('')
   protected products = signal(productRecords)
+  protected filteredProducts = computed(
+    () => {
+      if (this.filterText() !== '') {
+        return this.products().filter(
+          (p) => p.productName
+            .toLowerCase()
+            .includes(this.filterText().toLowerCase())
+        )
+      } else
+        return this.products()
+    }
+  )
 
 }

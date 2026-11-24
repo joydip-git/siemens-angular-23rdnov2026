@@ -1,0 +1,11 @@
+<h2>Parent component</h2>
+<br>
+<span>Value from Child:&nbsp;{{parentValue}}</span>
+<br>
+<app-nested 
+    [parentInfo]="parentValue"
+    (parentInfoChanged)="updateParentValue($event)"
+    >
+</app-nested>
+<!-- 
+<input type="text" (input)="updateParentValue()"> -->
