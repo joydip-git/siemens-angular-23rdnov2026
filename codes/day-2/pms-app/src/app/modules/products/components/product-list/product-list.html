@@ -8,7 +8,7 @@
     </span>
 </div>
 <br>
-@if(filteredProducts().length>0){
+@if(products().length>0){
 <table>
     <thead>
         <tr>
@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (p of filteredProducts(); track $index) {
+        @for (p of products(); track $index) {
         <tr>
             <td>
                 <img [src]="p.imageUrl" alt="NA" class="img-box" [title]="p.productName">

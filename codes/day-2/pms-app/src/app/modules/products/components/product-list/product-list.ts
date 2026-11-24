@@ -10,17 +10,17 @@ import { productRecords } from '../../repository/productrecords';
 export class ProductList {
   filterText = input('')
   protected products = signal(productRecords)
-  protected filteredProducts = computed(
-    () => {
-      if (this.filterText() !== '') {
-        return this.products().filter(
-          (p) => p.productName
-            .toLowerCase()
-            .includes(this.filterText().toLowerCase())
-        )
-      } else
-        return this.products()
-    }
-  )
+  // protected filteredProducts = computed(
+  //   () => {
+  //     if (this.filterText() !== '') {
+  //       return this.products().filter(
+  //         (p) => p.productName
+  //           .toLowerCase()
+  //           .includes(this.filterText().toLowerCase())
+  //       )
+  //     } else
+  //       return this.products()
+  //   }
+  // )
 
 }
