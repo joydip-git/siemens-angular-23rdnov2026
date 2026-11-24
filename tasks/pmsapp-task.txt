@@ -1,0 +1,120 @@
+Initial task: (binding)
+-----------------------------
+1. create an angular app: pmsapp (Standalone)
+   create directory "modules" for different feature modules in "src/app" directory
+   create a directory in that, named, "products" - one features module, to store all components, directives, pipes, services etc. for that feature module
+
+2. create a type/interface to represent the product type
+	a. create a "models" directory in the "src/app/modules/products" folder
+	b. add a file "product.ts" and create an exportable type/interface "Product" there, with all the members (as mentioned in the sample data) with appropriate data type
+
+3. create an array variable to store sample data
+	a. create a folder "repository" inside "src/app/modules/products" directory
+	b. add a new file "products.ts" inside the "repository" folder
+	c. copy the sample data and assign the same to an array variable (where the array is of type Product array). the variable must be exported from the file.
+
+4. create a separate component (ProductList) which will display all the products from the array avriable in its template through a table element or some other way (display only the image, name, price and rating property values)
+	
+	a. create a folder "components" inside "products". to store all components
+	b. inside "components" folder, now create a folder for the component files, named, "product-list"
+	c. add components files - code (product-list.ts), html (product-list.html), style file (product-list.css) etc.
+	d. write the component code which will fetch the products array and create the template design where the those products will be displayed
+
+5. nest the ProductList component inside the App component
+6. run
+
+enhancement-1:
+-------------------------
+create another component FilterProduct in "src/app/modules/products/components" directory
+it will supply the filter text typed in a textbox of its template to ProductList component via ProductContainer (parent component), so that the products can be filtered by product name.
+
+add a file (product-filter-pipe.ts) in the "src/app/modules/products/pipes" directory to create a custom pipe: ProductFilter. 
+This custom pipe will be used to filter the products in the ProductList component template, by the filter text, as received through an input decorated property, from FilterProduct component.
+
+enhancement-2:
+-----------------------
+create a folder "services" in "src/app/modules/products" directory
+
+create an interface "ServiceContract" for the following service (in service-contact.ts file) with a method "getAll()" which returns an array of Product objects and does not accept any parameter.
+
+add a file "product-service.ts" in the "services" folder
+create a ProductService class in that and implement the interface and the method
+	- getAll -> the method does not have any arguments but returns an array of Product objects (the sample data)
+
+Do not use @Service() decorator with the class
+
+create and register a custom provider (using InjectionToken) in the "constants.ts" file in "src/app/config" folder
+
+register the provider at the root level
+
+consume the service in ProductList component either through constructor or using inject() method (preferred) and use loose coupling through interface ServiceContract
+
+
+app structure:
+------------------
+app name: pms-app
+
+src (folder)
+	index.html
+	styles.css
+	app-theme.css
+	main.ts
+
+
+	app (folder)
+
+		app.config.ts
+		app-routes.ts
+
+		config (folder)
+			constants.ts
+
+		modules (folder)
+
+			root (folder)
+				components (folder)
+					app (folder)
+						app.ts
+						app.html
+						app.css
+						app.spec.ts
+
+			products (folder)
+				services
+					service-contract.ts
+					product-service.ts
+					product-service.spec.ts
+
+				models (folder)
+					product.ts (file with Product type)
+
+				repository (folder)
+					products.ts (array of Product)
+		
+							
+				components (folder)
+
+					product-container (folder)
+						product-container.ts
+						product-container.html
+						product-container.css
+						product-container.spec.ts
+
+					product-list (folder)
+						product-list.ts
+						product-list.html
+						product-list.css
+						product-list.spec.ts
+
+					filter-product (folder)
+						filter-product.ts
+						filter-product.css
+						filter-product.html
+						filter-product.spec.ts
+			
+				pipes (folder)
+					product-filter-pipe.ts
+					product-filter-pipe.spec.ts
+
+
+
