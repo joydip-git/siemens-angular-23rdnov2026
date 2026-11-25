@@ -1,0 +1,27 @@
+@if(todos().length>0){
+
+  <table>
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Assigned To</td>
+        <td>Task</td>
+        <td>Status</td>
+      </tr>
+    </thead>
+    <tbody>
+      @for(todo of todos()|filtertodos:'c#';track $index){
+        <tr>
+          <td>{{todo.id}}</td>
+          <td>{{todo.userId|currency:'INR'}}</td>
+          <td>{{todo.title|uppercase}}</td>
+          <td>
+            <input type="checkbox" [checked]="todo.completed">
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}@else {
+<span>No tasks</span>
+}

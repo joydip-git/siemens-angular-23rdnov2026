@@ -1,0 +1,66 @@
+services and dependency injection:
+----------------------------------------
+A. Create Service
+
+B. Create Provider for the service:
+
+provider: an object which provides metadata about the service to the Angular's DI framework
+
+a. class provider: where the token (provide) value is the service class itself and we use "useClass" property to mention the service to be instantiated
+	- provide and useClass
+
+properties: 
+	- provide: a token representing the service
+			i. service class itself [no need to use InjectionToken]
+			ii. a string [you have to use constructor-based DI method. You can't use inject() method for DI]
+			iii. an instance of InjectionToken class
+
+	- useClass: the service class to be instantiated and DIed
+
+example: when the token is none other than the service class itself
+	{ provide: TodoService, useClass: TodoService}
+
+b. factory provider: where the "useFactory", instead of "useClass" is used
+	- provide and useFactory
+
+properties: 
+	- provide: a token representing the service
+			i. service class itself [used to dependency inject class instance]
+			ii. a string [used to dependency inject class instance as well as regular primitive values]
+			iii. an instance of InjectionToken class [used to dependency inject class instance as well as regular primitive values]
+
+	- useFactory: the reference to a factory method (callback function) which creates the service instance
+
+example: when the token is none other than the service class itself
+	{ provide: TodoService, useFactory: ()=> { return .....} }
+
+
+c. value provider: where the "useValue", instead of "useClass/Factory" is used
+	- provide and useValue
+
+properties: 
+	- provide: a token representing the service
+			i. service class itself
+			ii. a string
+			iii. an instance of InjectionToken class
+
+	- useValue: a value that has to be DIed
+
+example: when the token is none other than the service class itself
+	{ provide: 'token', useValue: 'value' }
+
+
+C. Registration of the provider:
+	a. component level: if a component instance needs dedicated instance of the service.
+
+	@Component({
+		providers:[provideTodoService()]
+		selector:'',
+		templateUrl:'',
+		styleUrl:'',
+		imports:[]		
+	})
+	b. root level: if the whole application wants to share the singleton instance
+
+D. Consumption of the service:
+inject(<TOKEN>)
