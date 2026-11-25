@@ -1,9 +1,10 @@
 import { ClassProvider, InjectionToken, Provider, ValueProvider } from "@angular/core";
-import { ServiceContract, DataService } from "../services/todo-service";
+import { ServiceContract, TodoService } from "../services/todo-service";
+import { Todo } from "../models/todo";
 
 //export const SERVICE_TOKEN = TodoService
-export const SERVICE_TOKEN = new InjectionToken<ServiceContract>('SERVICE_TOKEN')
-export const SERVICE_TYPE = DataService
+export const SERVICE_TOKEN = new InjectionToken<ServiceContract<Todo>>('SERVICE_TOKEN')
+export const SERVICE_TYPE = TodoService
 
 // export const API_PATH_TOKEN = 'API_PATH_TOKEN'
 export const API_PATH_TOKEN = new InjectionToken<string>('API_PATH_TOKEN')

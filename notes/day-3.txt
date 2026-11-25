@@ -64,3 +64,26 @@ C. Registration of the provider:
 
 D. Consumption of the service:
 inject(<TOKEN>)
+
+
+@Service() decorator -> Decorator that marks a class as a service and makes it automatically available in the dependency injection system.
+you want the provider token to be the class itself and you are using class provider where useClass property will be used
+
+
+
+HTTP Requests:
+----------------
+HttpClient -> a built-in service class
+package: @angular/common/http
+built-in provider method: provideHttpClient()
+
+methods:
+	get 		-> send HTTP GET request
+	put		-> send HTTP PUT request
+	post		-> send HTTP POST request
+	delete		-> send HTTP DELETE request
+	patch		-> send HTTP PATCH request
+	....
+
+
+
