@@ -7,7 +7,15 @@
 }@else {
 <ul>
     @for (post of posts(); track $index) {
-        <li>{{post.title}}</li>
+    <li (click)="selectedPostId.set(post.id)">
+        <u>
+            {{post.title}}
+        </u>
+    </li>
     }
 </ul>
+}
+
+@if(selectedPostId()>0){
+    <app-post-details [postId]="selectedPostId()"></app-post-details>
 }

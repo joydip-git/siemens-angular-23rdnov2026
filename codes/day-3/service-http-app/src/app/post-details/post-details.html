@@ -1,0 +1,15 @@
+@if(!isRequestOver()){
+<span>Loading....</span>
+}@else if (errorInfo()!=='') {
+<span>{{errorInfo()}}</span>
+}@else if(post()===null){
+<span>No post found</span>
+}@else {
+<span>Title: {{post()?.title}}</span>
+<br>
+<span>Body: {{post()?.body}}</span>
+<br>
+<span>Id: {{post()?.id}}</span>
+<br>
+<span>User Id: {{post()?.userId}}</span>
+}

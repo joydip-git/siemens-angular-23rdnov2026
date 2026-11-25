@@ -87,3 +87,32 @@ methods:
 
 
 
+ServiceContract<T>:
+	getAll():Observable<T[]>
+	get(id:number):Observable<T|null>;
+	add(data:T):Observable<T>;
+	update(id:number, data:T):Observable<T>;
+	delete(id:number):Observable<T>;
+
+
+PostService -> ServiceContract<Post>
+	private http = inject(HttpClient)
+
+	getAll(){
+		const obs:Observable<Post[]> = this.http.get<Post[]>('url')
+		return obs		
+	}
+
+
+observable and observer:
+
+
+service
+	- create
+	- register
+		- create a provider (default class provider or custom token based provider)
+		- register provider
+
+	class, value and factory (and existing)
+
+
