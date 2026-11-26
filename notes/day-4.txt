@@ -23,3 +23,5 @@ By -> Predicates for use with DebugElement's query functions.(@angular/platform-
 
 detectChanges() method of ComponentFixture<T> => Trigger a change detection cycle for the component.
 
+HttpTestingController: Controller to be injected into tests, that allows for mocking and flushing of requests.
+

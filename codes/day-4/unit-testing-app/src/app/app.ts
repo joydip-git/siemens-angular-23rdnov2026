@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { CalculatorService } from './services/calculator-service';
 import { TOKEN } from './config/constants';
+import { PostList } from './post-list/post-list';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [PostList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
