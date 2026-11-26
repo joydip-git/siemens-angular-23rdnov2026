@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { App } from './app';
-import { DebugElement } from '@angular/core';
+import { DebugElement, resource } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { CalculatorService } from './services/calculator-service';
+import { provideCalculatorService } from "./config/constants";
 
 describe(
   'App component testing',
@@ -12,6 +14,10 @@ describe(
 
     beforeEach(
       () => {
+        TestBed.configureTestingModule({
+          //providers: [CalculatorService]
+          providers:[provideCalculatorService()]
+        })
         fixture = TestBed.createComponent(App)
         componentInstance = fixture.componentInstance;
         //fixture.detectChanges()
@@ -48,6 +54,16 @@ describe(
         const nativeElement = fixture?.nativeElement as HTMLElement
         const h2Element = nativeElement.querySelector('#main')
         expect(h2Element?.textContent).toBe('welcome to unit testing')
+      }
+    )
+
+    it(
+      'upon calling calculate method, result will be 5 when first and second are 3 and 2',
+      () => {
+        componentInstance?.first.set(3)
+        componentInstance?.second.set(2)
+        componentInstance?.calculate()
+        expect(componentInstance?.result()).toEqual(5)
       }
     )
 
