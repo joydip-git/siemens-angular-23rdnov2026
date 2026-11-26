@@ -1,0 +1,25 @@
+unit testing:
+------------------
+Karma -> test runner
+Jasmine -> testing framework
+
+>npm i karma jasmine-core karma-jasmine karma-chrome-launcher karma-jasmine-html-reporter @types/jasmine istanbul-lib-instrument -D
+
+vitest -> latest (runner and framework)
+
+component unit testing:
+---------------------------
+TestBed -> context or environment created for angular assets unit testing
+Configures and initializes environment for unit testing and provides methods for creating components and services in unit tests.
+
+TestBed is the primary api for writing unit tests for Angular applications and libraries.
+
+[code + template] -> ComponentFixture<T>: Fixture for debugging and testing a component.
+
+DebugElment -> The DebugElement associated with the root element of this component.
+ nativeElement
+
+By -> Predicates for use with DebugElement's query functions.(@angular/platform-browser)
+
+detectChanges() method of ComponentFixture<T> => Trigger a change detection cycle for the component.
+
