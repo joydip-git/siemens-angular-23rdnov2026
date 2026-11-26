@@ -101,7 +101,9 @@ describe('PostList', () => {
 
   it('the template displays 10 posts using 10 li elements',
     () => {
-      
+      //expect(postSvc.getAll).toHaveBeenCalled()
+      expect(postSvc.getAll).toHaveBeenCalledTimes(1)
+
       const template = fixture.nativeElement as HTMLElement;
       const list = template.querySelector('#postsList') as HTMLUListElement
       expect(list.children.length).toEqual(10)
