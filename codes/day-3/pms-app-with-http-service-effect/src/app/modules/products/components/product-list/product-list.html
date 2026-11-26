@@ -19,7 +19,7 @@
             <th>Delete</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="proTableBody">
         @for (p of products()|productFilter:filterText(); track $index) {
         <tr>
             <td>

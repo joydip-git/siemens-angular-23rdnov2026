@@ -25,3 +25,5 @@ detectChanges() method of ComponentFixture<T> => Trigger a change detection cycl
 
 HttpTestingController: Controller to be injected into tests, that allows for mocking and flushing of requests.
 
+expectOne(): Expect that a single request has been made which matches the given URL, and return its mock.
+
