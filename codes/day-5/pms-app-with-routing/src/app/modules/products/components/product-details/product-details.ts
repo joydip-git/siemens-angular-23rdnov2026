@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, effect, EffectCleanupRegisterFn, inject, signal } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router';
 import { PRODUCT_SERVICE_TOKEN } from '../../../../config/constants';
 import { Product } from '../../models/product';
@@ -20,8 +20,9 @@ export class ProductDetails {
   constructor() {
 
     effect(
-      () => {
+      (cleanUp: EffectCleanupRegisterFn) => {
         const id = this.fetchId()
+        this.fetchProductById(id, cleanUp)
       }
     )
   }
@@ -31,5 +32,31 @@ export class ProductDetails {
     const params: Params = snapshot.params
     const id = Number(params['id'])
     return id
+  }
+
+  private fetchProductById(id: number, cleanUpFn: EffectCleanupRegisterFn) {
+
+    const sub = this.productSvc.getProduct(id).subscribe({
+      next: (response) => {
+        if (response.data !== null) {
+          this.product.set(response.data)
+          this.isRequestOver.set(true)
+          this.errorInfo.set('')
+        } else {
+          this.product.set(undefined)
+          this.isRequestOver.set(true)
+          this.errorInfo.set(response.message)
+        }
+      },
+      error: (err) => {
+        this.product.set(undefined)
+        this.isRequestOver.set(true)
+        this.errorInfo.set(err.message)
+      }
+    })
+
+    cleanUpFn(
+      () => sub.unsubscribe()
+    )
   }
 }
