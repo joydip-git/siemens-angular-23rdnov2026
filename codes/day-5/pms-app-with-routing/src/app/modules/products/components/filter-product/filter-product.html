@@ -1,0 +1,4 @@
+<div>
+    <label for="txtFilter">Filter By Name: &nbsp;</label>
+    <input type="text" id="txtFilter" [value]="filterValue()" (input)="emitFilterValue($event.target.value)">
+</div>

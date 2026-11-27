@@ -1,0 +1,60 @@
+routes: [@angular/router]
+------------------------------
+Client-side routing: dynamically pulling a component and rebderng on the single page at the client side
+
+http://localhost:4200/home		=> Home [http://localhost:4200 -> http://localhost:4200/home]
+
+
+http://localhost:4200/products 		=> ProductContainer -> [ ProductList + FilterProduct ]
+http://localhost:4200/products/view/:x 	=> ProductDetails
+http://localhost:4200/products/view/1   => {x:'1'}
+http://localhost:4200/products/edit/:y 	=> EditProduct
+http://localhost:4200/products/add 	=> AddProduct
+
+**					=> PageNotFound
+
+DashBoard
+
+Route -> repreents a single rout. important properties: path and component properties
+Routes -> an array of Route objects
+
+app-routes.ts
+--------------
+Route homeRoute = { path:'home', chidlren:[{},{}]}
+
+Routes routes=[homeRoute, productsRoute, viewProductRoute,....]
+
+
+Path Match Strategy:
+------------------------
+full [no prefix] and prefix [the children routes starts with a prefix]
+
+supplt this routes array to angular router engine -> Router [ a built-in service class for Routing]
+
+app.config.ts
+-------------------
+
+export const appConfig:ApplicaionConfig = {
+	providers:[
+		provideRouter(routes)
+	]
+}
+
+ActivatedRoute -> a built-in service class [ an object to store current navigation information]
+
+RouterState -> a built-in service class to store the current state of router (collection of ActvitatedRoute objects]
+
+
+const provideRouter = (routes:Routes)=>{
+	provide:'',
+	useFactory: ()=>{
+		return new Router(routes)
+	}
+}
+
+RouterOutlet: Acts as a placeholder that Angular dynamically fills based on the current router state. (<router-outlet></router-outlet>)
+
+
+RouterLink: When applied to an element in a template, makes that element a link that initiates navigation to a route. Navigation opens one or more routed components in one or more <router-outlet> locations on the page. This is an ATTRIBUTE DIRECTIVE
+
+routeLink -> string (complete url) or an array of strings (url fragments)

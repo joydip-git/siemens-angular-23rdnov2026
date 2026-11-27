@@ -89,7 +89,7 @@ the callback method MUST NOT return any value
 directive:
 	it is used as custom HTML attribute (which only angular understands)
 
-	a. structural directive: always used with *
+	a. structural directive: always used with *. it is used to manipulate DOM elements.
 	*ngFor, *ngIf, *ngSwitch etc.
 
 	@Directive({
@@ -98,6 +98,10 @@ directive:
 	export class NgIf{
 	}
 
+
+	b. attribute directive: these directives are used like an attribute to an element, but does extend the behavior of that element
+	it is NOT used with any special character
+	<element routerLink="/url">
 	
 
 
