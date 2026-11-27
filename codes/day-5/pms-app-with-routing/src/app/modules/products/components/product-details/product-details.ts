@@ -1,7 +1,8 @@
 import { Component, effect, EffectCleanupRegisterFn, inject, signal } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Params, Router } from '@angular/router';
 import { PRODUCT_SERVICE_TOKEN } from '../../../../config/constants';
 import { Product } from '../../models/product';
+import { ProductStorageService } from '../../services/product-storage-service';
 
 @Component({
   imports: [],
@@ -12,6 +13,8 @@ import { Product } from '../../models/product';
 export class ProductDetails {
   private currentRoute = inject(ActivatedRoute)
   private productSvc = inject(PRODUCT_SERVICE_TOKEN)
+  private router = inject(Router)
+  private storageSvc = inject(ProductStorageService)
 
   product = signal<Product | undefined>(undefined);
   isRequestOver = signal(false)
@@ -25,6 +28,13 @@ export class ProductDetails {
         this.fetchProductById(id, cleanUp)
       }
     )
+  }
+
+  goTo() {
+    if (this.product() !== undefined) {
+      this.storageSvc.save(this.product())
+      this.router.navigate(['/products/edit', this.product()?.productId])
+    }
   }
 
   private fetchId() {

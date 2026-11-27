@@ -58,3 +58,22 @@ RouterOutlet: Acts as a placeholder that Angular dynamically fills based on the 
 RouterLink: When applied to an element in a template, makes that element a link that initiates navigation to a route. Navigation opens one or more routed components in one or more <router-outlet> locations on the page. This is an ATTRIBUTE DIRECTIVE
 
 routeLink -> string (complete url) or an array of strings (url fragments)
+
+
+http://localhost:4200/products/:x/categories/:y
+
+http://localhost:4200/products/1/categories/2
+
+AR -> Params -> {x:'1', y:'2'}
+
+FormControl => errors => {required:true}
+
+
+
+
+https://forms.gle/CtqfzjCLjynvTdyAA
+
+
+
+
+

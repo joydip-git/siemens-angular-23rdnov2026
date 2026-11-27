@@ -14,6 +14,6 @@ export class ProductService implements Repository {
         return this.http.get<ApiResponse<Product[]>>(PRODUCT_API_URL)
     }
     getProduct(id: number): Observable<ApiResponse<Product>> {
-        return this.http.get<ApiResponse<Product>>(`${PRODUCT_API_URL}\${id}`)
+        return this.http.get<ApiResponse<Product>>(`${PRODUCT_API_URL}/${id}`)
     }
 }

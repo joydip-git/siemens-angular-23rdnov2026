@@ -91,6 +91,11 @@ directive:
 
 	a. structural directive: always used with *. it is used to manipulate DOM elements.
 	*ngFor, *ngIf, *ngSwitch etc.
+	<element *ngIf="condition">
+	</element>
+
+	or
+	@if(condition){<element></element>}
 
 	@Directive({
 		selector:'[ngIf]'

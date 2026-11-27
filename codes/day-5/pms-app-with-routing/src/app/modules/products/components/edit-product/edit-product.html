@@ -1,1 +1,32 @@
-<p>edit-product works!</p>
+@if(!product()){
+<span>{{errorInfo()}}</span>
+}@else {
+<span>Edit: {{product()?.productName}}</span>
+<br>
+@if(form){
+<form (submit)="submit()" [formGroup]="form">
+    <div>
+        <label for="txtName">Name: &nbsp;</label>
+        <!-- <input type="text" id="txtName" [formControl]="productName"> 
+         -->
+        <input type="text" id="txtName" formControlName="productName">
+    </div>
+    @if(productName?.errors && productName?.invalid){
+    @if(productName?.errors?.['required'] && (productName?.dirty || productName?.touched)) {
+    <span>product name is required </span>
+    }
+    }
+    <div>
+        <label for="txtPrice">Price: &nbsp;</label>
+        <!-- <input type="text" id="txtPrice" [formControl]="price"> -->
+        <input type="text" id="txtPrice" formControlName="price">
+    </div>
+    @if(price?.errors && price?.invalid){
+    @if(price?.errors?.['required'] && (price?.dirty || price?.touched)) {
+    <span>price is required </span>
+    }
+    }
+    <input type="submit" value="Submit" [disabled]="form.invalid">
+</form>
+}
+}
